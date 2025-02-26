@@ -1,0 +1,15 @@
+:host {
+  z-index: 1;
+  display: block;
+  ion-content {
+    --background: #2b1830;
+  }
+  ion-list {
+    margin-top: 23vw;
+    ion-item {
+      --background: #2b1830;
+      --color: #ff914d;
+      font-weight: bold;
+    }
+  }
+}

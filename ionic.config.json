@@ -1,0 +1,7 @@
+{
+  "name": "MartinsRibeiroRealEstate",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

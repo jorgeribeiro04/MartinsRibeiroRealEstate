@@ -1,0 +1,56 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Filter Properties</ion-title>
+    <ion-buttons slot="end">
+      <ion-icon (click)="closeModal()" name="close-circle-sharp"></ion-icon>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="ion-padding">
+  <ion-accordion-group>
+    @for(key of getKeys(); track key){
+    <ion-accordion [value]="key">
+      <ion-item id="filter-header" slot="header" [expanded]="true">
+        <ion-label>{{ key.slice(8) }}</ion-label>
+      </ion-item>
+      <div class="ion-padding" slot="content">
+        @for(value of getValues(key); track value){
+        <ion-item>
+          <ion-checkbox
+            (click)="isChecked(value)"
+            [id]="value"
+            justify="start"
+            labelPlacement="end"
+            >{{ value }}</ion-checkbox
+          >
+        </ion-item>
+        }
+      </div>
+    </ion-accordion>
+    }
+    <ion-accordion value="prices">
+      <ion-item id="filter-header" slot="header">
+        <ion-label>Prices</ion-label>
+      </ion-item>
+      <div class="ion-padding" slot="content">
+        <ion-item>
+          <ion-label class="price-range">{{
+            getMinPrice() | number
+          }}</ion-label>
+          <ion-range
+            aria-label="Dual Knobs Range"
+            [dualKnobs]="true"
+            [value]="{ lower: knobRange.lower, upper: knobRange.upper }"
+            [(ngModel)]="knobRange"
+            (ionKnobMoveEnd)="onIonKnobMoveEnd($event)"
+          >
+          </ion-range>
+          <ion-label class="price-range">{{
+            getMaxPrice() | number
+          }}</ion-label>
+        </ion-item>
+      </div>
+    </ion-accordion>
+  </ion-accordion-group>
+  <ion-button (click)="applyFilter()">Apply</ion-button>
+</ion-content>

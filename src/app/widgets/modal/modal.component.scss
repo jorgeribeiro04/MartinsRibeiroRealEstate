@@ -1,0 +1,46 @@
+:host {
+  height: 100%;
+  ion-content {
+    --background: #f2f2f2;
+    #filter-header {
+      --background: #2b1830;
+      --color: #ff914d;
+      --color-activated: #ff914d;
+      --color-focused: #ff914d;
+      font-weight: bolder;
+      --background-activated: #2b1830;
+      --background-focused: #2b1830;
+    }
+
+    .ion-padding {
+      background-color: aliceblue;
+      ion-item {
+        --background: aliceblue;
+        color: #441752;
+        font-weight: bold;
+        --border-style: none;
+        ion-checkbox {
+          --checkbox-background-checked: #ff914d;
+          --border-color-checked: #2b1830;
+          --checkmark-color: #2b1830;
+        }
+      }
+      .price-range {
+        max-width: fit-content;
+        margin-inline-end: 0px;
+        --inner-padding-end: 0px;
+      }
+
+      ion-range {
+        padding-inline-start: 6vw;
+      }
+    }
+
+    ion-button {
+      --background: #441752;
+      font-weight: bolder;
+      width: 100%;
+      margin-top: 5vh;
+    }
+  }
+}

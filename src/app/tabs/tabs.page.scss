@@ -1,0 +1,20 @@
+:host {
+  ion-tabs {
+    ion-tab-bar {
+      cursor: pointer;
+      height: 9vh;
+      --background: #2b1830;
+      ion-tab-buttons {
+        background-color: #2b1830;
+      }
+      ion-icon {
+        fill: whitesmoke;
+      }
+      ion-label {
+        color: #ff914d;
+        font-weight: bolder;
+        font-size: small;
+      }
+    }
+  }
+}

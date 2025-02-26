@@ -1,0 +1,60 @@
+<ion-item>
+  <ion-img
+    src="/assets/invertedLogo.png"
+    alt="Ribeiro Real Estate Agency Logo"
+  />
+</ion-item>
+<ion-text><h1>Login To Your Account</h1></ion-text>
+<form (ngSubmit)="onSubmit()">
+  <ion-grid>
+    <ion-row>
+      <ion-col size="2"><ion-icon name="mail"></ion-icon></ion-col>
+      <ion-col size="8"
+        ><ion-input
+          name="username"
+          type="email"
+          placeholder="Email"
+          labelPlacement="fixed"
+          [(ngModel)]="username"
+        ></ion-input
+      ></ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="2"><ion-icon name="lock-closed"></ion-icon></ion-col>
+      <ion-col size="8"
+        ><ion-input
+          name="password"
+          id="password-input"
+          type="password"
+          placeholder="Password"
+          labelPlacement="fixed"
+          [(ngModel)]="password"
+        ></ion-input
+      ></ion-col>
+      <ion-col
+        ><ion-icon
+          id="view-password-icon"
+          name="eye-off"
+          (click)="viewPassword()"
+        ></ion-icon
+      ></ion-col>
+    </ion-row>
+    <ion-row class="button-row">
+      <ion-button type="submit">Login</ion-button>
+    </ion-row>
+    <ion-row id="forgot-password-link" class="button-row">
+      <ion-col>
+        <ion-text><a>Forgot Password?</a></ion-text>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</form>
+<ion-text id="testing">
+  <ion-label id="signIn"
+    >Don't have an account?<a
+      (click)="closeMenu('signup')"
+      [routerLink]="['/action', 'signup']"
+      >Sign Up</a
+    ></ion-label
+  >
+</ion-text>

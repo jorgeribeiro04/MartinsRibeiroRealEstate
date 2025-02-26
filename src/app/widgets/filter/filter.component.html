@@ -1,0 +1,20 @@
+<ion-item id="filter-item">
+  <ion-text>
+    <h1>{{ titleString() }}</h1>
+  </ion-text>
+  <ion-icon
+    expand="block"
+    (click)="setOpen(true)"
+    name="filter-circle-outline"
+  ></ion-icon>
+</ion-item>
+<ion-modal [isOpen]="isModalOpen">
+  <ng-template>
+    <app-modal
+      [checkbox]="checkboxData"
+      (appliedFilters)="outputFilters($event)"
+      (isOpen)="setOpen($event)"
+      (checkboxStatus)="checkboxStatus($event)"
+    />
+  </ng-template>
+</ion-modal>

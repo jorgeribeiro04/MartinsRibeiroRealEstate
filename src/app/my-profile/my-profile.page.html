@@ -1,0 +1,22 @@
+<app-header [contentId]="getContentId()" />
+<app-side-menu />
+<ion-content [id]="getContentId()" [fullscreen]="true">
+  <ion-item>
+    <ion-img src="/assets/profilePictures/jorge.png"></ion-img>
+  </ion-item>
+  <ion-grid>
+    <ion-row>
+      <ion-label>Name</ion-label>
+      <ion-input></ion-input>
+    </ion-row>
+    <ion-row>
+      <ion-label>Surname</ion-label>
+      <ion-input></ion-input>
+    </ion-row>
+    <ion-row>
+      <ion-label>Username</ion-label>
+      <ion-input></ion-input>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+<app-tabs />

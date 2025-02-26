@@ -1,0 +1,29 @@
+:host {
+  z-index: 1;
+  ion-footer {
+    ion-toolbar {
+      --padding-start: 0px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 9vh;
+      padding: 3px;
+      --background: #2b1830;
+      ion-button {
+        width: 35vw;
+        ion-icon {
+          fill: whitesmoke;
+          font-size: 1.6rem;
+        }
+        ion-label {
+          margin-top: 0.1vh;
+          display: block;
+          text-align: center;
+          color: #ff914d;
+          font-weight: bolder;
+          font-size: small;
+        }
+      }
+    }
+  }
+}

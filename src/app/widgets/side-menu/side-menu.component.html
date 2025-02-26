@@ -1,0 +1,36 @@
+<ion-menu
+  id="side-menu"
+  side="end"
+  [menuId]="contentId"
+  class="custom-menu"
+  [contentId]="contentId"
+>
+  <ion-content>
+    <ion-list>
+      @if(isLoggedIn){
+      <ion-item
+        button
+        (click)="closeMenu('personalProfile')"
+        [routerLink]="['/my-profile']"
+      >
+        <ion-text>Edit Profile</ion-text>
+      </ion-item>
+      <ion-item button>My Bookings</ion-item>
+      <ion-item button (click)="logOut()">Logout</ion-item>
+      }@else{
+      <ion-item
+        button
+        (click)="closeMenu('login')"
+        [routerLink]="['/action', 'login']"
+        >Login</ion-item
+      >
+      <ion-item
+        button
+        (click)="closeMenu('signup')"
+        [routerLink]="['/action', 'signup']"
+        >Sign Up</ion-item
+      >
+      }
+    </ion-list>
+  </ion-content>
+</ion-menu>

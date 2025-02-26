@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar>
+    <div>
+      <ion-item>
+        <ion-img src="/assets/logo.png" alt="Ribeiro Real Estate Agency Logo" />
+      </ion-item>
+      <span>
+        <h2>Martins & Ribeiro</h2>
+        <ion-label>Real Estate Agency</ion-label>
+      </span>
+    </div>
+    <ion-item slot="end">
+      @if(isLoggedIn){
+      <ion-img
+        (click)="openMenu()"
+        id="profile-picture"
+        src="{{ userProfile?.profilePicture }}"
+      />
+      }@else {
+      <ion-icon (click)="openMenu()" id="profile-icon" name="person"></ion-icon>
+      }
+    </ion-item>
+  </ion-toolbar>
+</ion-header>

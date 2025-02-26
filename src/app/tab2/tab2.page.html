@@ -1,0 +1,5 @@
+<app-header [contentId]="getContentId()" />
+<app-side-menu />
+<ion-content [id]="getContentId()" [fullscreen]="true">
+  <app-property-cards [properties]="propertiesForSale" />
+</ion-content>

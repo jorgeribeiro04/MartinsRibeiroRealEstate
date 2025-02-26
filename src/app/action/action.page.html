@@ -1,0 +1,10 @@
+<app-header [contentId]="getContentId()" />
+<app-side-menu />
+<ion-content [id]="getContentId()" [fullscreen]="true">
+  @if(action === 'login'){
+  <app-login />
+  }@else if(action === 'signup'){
+  <app-sign-up />
+  }
+</ion-content>
+<app-tabs aria-hidden="false" />

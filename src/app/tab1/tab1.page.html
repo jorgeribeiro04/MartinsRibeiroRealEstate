@@ -1,0 +1,10 @@
+<app-header [contentId]="getContentId()" />
+<app-side-menu />
+<ion-content [id]="getContentId()" [fullscreen]="true">
+  <app-filter
+    (applyFilters)="printingFiltes($event)"
+    [titleString]="filteredString()"
+    (isOpen)="resetContent()"
+  />
+  <app-property-cards [properties]="propertiesForRent" />
+</ion-content>

@@ -1,0 +1,32 @@
+:host {
+  --background: #f2f2f2;
+  ion-list {
+    min-width: 100%;
+    text-align: center;
+    background-color: #f2f2f2;
+  }
+  ion-item {
+    --background: #f2f2f2;
+    --border-style: none;
+    min-width: 100%;
+    --padding-start: 0px;
+    align-items: center;
+  }
+  ion-card {
+    min-width: 95%;
+    --background: aliceblue;
+    margin-bottom: 2vh;
+    border-radius: 10px;
+    ion-img {
+      object-fit: fill;
+      height: 22vh;
+    }
+    ion-card-title {
+      color: #441752;
+      font-weight: bolder;
+    }
+    ion-card-subtitle {
+      color: #441752;
+    }
+  }
+}

@@ -1,0 +1,52 @@
+<ion-item>
+  <ion-img
+    src="/assets/invertedLogo.png"
+    alt="Ribeiro Real Estate Agency Logo"
+  />
+</ion-item>
+<ion-text><h1>Create An Account</h1></ion-text>
+<form (ngSubmit)="onSubmit()">
+  <ion-grid>
+    <ion-row>
+      <ion-col size="2"><ion-icon name="mail"></ion-icon></ion-col>
+      <ion-col size="8"
+        ><ion-input
+          name="username"
+          type="email"
+          placeholder="Email"
+          labelPlacement="fixed"
+          [(ngModel)]="username"
+        ></ion-input
+      ></ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="2"><ion-icon name="lock-closed"></ion-icon></ion-col>
+      <ion-col size="8"
+        ><ion-input
+          name="password"
+          id="password-input"
+          type="password"
+          placeholder="Password"
+          labelPlacement="fixed"
+          [(ngModel)]="password"
+        ></ion-input
+      ></ion-col>
+      <ion-col
+        ><ion-icon id="view-password-icon" name="eye-off"></ion-icon
+      ></ion-col>
+    </ion-row>
+    @if(!getValidPassword()){
+    <ion-row id="invalid-password">
+      <ion-text
+        ><ion-label color="danger"
+          >Password must contain 8 characters, uppercase, lowercase, number, and
+          a special character.</ion-label
+        ></ion-text
+      >
+    </ion-row>
+    }
+    <ion-row id="button-row" class="button-row">
+      <ion-button type="submit">Sign Up</ion-button>
+    </ion-row>
+  </ion-grid>
+</form>

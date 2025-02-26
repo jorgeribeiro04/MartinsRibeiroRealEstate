@@ -1,0 +1,68 @@
+:host {
+  text-align: center;
+  ion-item {
+    --background: #f2f2f2;
+    --border-style: none;
+    ion-img {
+      height: 8vh;
+      width: 30vw;
+      margin-left: 35%;
+      margin-top: 7vh;
+    }
+  }
+  ion-text {
+    color: #441752;
+    h1 {
+      font-weight: bolder;
+      font-size: 2em;
+    }
+    a {
+      color: #441752;
+      text-decoration: underline;
+    }
+  }
+
+  ion-grid {
+    width: 90%;
+    margin-top: 3vh;
+    ion-row {
+      border-bottom: solid;
+      border-color: #441752;
+      margin-top: 2vh;
+      ion-col {
+        color: #441752;
+        font-weight: bolder;
+        align-content: center;
+        ion-icon {
+          fill: #ff914d;
+        }
+        ion-input {
+          --placeholder-color: #441752;
+          text-align: center;
+        }
+      }
+    }
+    .button-row {
+      border: none;
+      ion-button {
+        font-weight: bolder;
+        margin-top: 2vh;
+        border-radius: 0;
+        width: 100%;
+        --background: #441752;
+        cursor: pointer;
+      }
+    }
+
+    #invalid-password {
+      border: none;
+      ion-text {
+        display: inline-block;
+        width: 100%;
+        align-items: center;
+        font-weight: bold;
+        font-size: smaller;
+      }
+    }
+  }
+}
