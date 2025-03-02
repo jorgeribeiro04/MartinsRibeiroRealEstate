@@ -1,0 +1,109 @@
+:host {
+  ion-content {
+    text-align: center;
+    --background: #f2f2f2;
+    ion-item {
+      --background: #f2f2f2;
+      --border-style: none;
+      width: 100%;
+      --padding-start: 0;
+      --inner-padding-end: 0;
+      ion-card {
+        --background: #f2f2f2;
+        margin: 0;
+        border-radius: 0;
+        width: 100%;
+        swiper-container {
+          width: 100%;
+          swiper-slide {
+            width: 100%;
+            ion-img {
+              object-fit: cover;
+              height: 30vh;
+            }
+          }
+        }
+        ion-card-header {
+          width: 100%;
+          --background: #f2f2f2;
+          ion-card-title {
+            color: #441752;
+            font-weight: bolder;
+            margin-top: 0.5vh;
+          }
+          ion-card-subtitle {
+            width: 100%;
+            color: #441752;
+          }
+        }
+        ion-card-content {
+          background-color: #f2f2f2;
+          color: black;
+          text-align: justify;
+        }
+      }
+    }
+    ion-accordion {
+      background-color: #f2f2f2;
+      .details {
+        --padding-end: 10px;
+        color: #441752;
+        --background: #f2f2f2;
+        width: 100%;
+        display: block;
+        ion-label {
+          margin-top: 2.5vh;
+          height: 4vh;
+          color: #441752;
+          font-weight: bolder;
+          padding-inline-start: 20px;
+        }
+        h2 {
+          font-weight: bold;
+          color: #441752;
+        }
+      }
+      #map {
+        height: 30vh;
+      }
+      .additional-margin {
+        margin-bottom: 10vh;
+      }
+      p {
+        text-align: justify;
+      }
+
+      .property-details {
+        margin-left: 20px;
+        display: flex;
+        h3 {
+          color: black;
+          font-weight: bold;
+          margin-right: 2vw;
+        }
+      }
+
+      #mortgage-calculator {
+        --padding-top: 0;
+        margin-bottom: 10vh;
+      }
+    }
+  }
+
+  #book-visit {
+    position: sticky;
+    bottom: 0;
+    width: 99%;
+    --border-radius: 0;
+    font-size: large;
+    font-weight: bold;
+    color: whitesmoke;
+    --background: #2b1830;
+    ion-icon {
+      margin-top: -0.5vw;
+      margin-right: 3vw;
+      fill: #ff914d;
+      size: small;
+    }
+  }
+}

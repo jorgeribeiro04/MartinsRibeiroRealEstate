@@ -7,7 +7,8 @@ import { IonicModule } from '@ionic/angular';
 import { MyProfilePageRoutingModule } from './my-profile-routing.module';
 
 import { MyProfilePage } from './my-profile.page';
-import { SharedModule } from "../shared/shared.module";
+import { SharedModule } from '../shared/shared.module';
+import { PhoneListComponent } from '../widgets/phone-list/phone-list.component';
 
 @NgModule({
   imports: [
@@ -15,8 +16,8 @@ import { SharedModule } from "../shared/shared.module";
     FormsModule,
     IonicModule,
     MyProfilePageRoutingModule,
-    SharedModule
-],
-  declarations: [MyProfilePage]
+    SharedModule,
+  ],
+  declarations: [MyProfilePage, PhoneListComponent],
 })
 export class MyProfilePageModule {}

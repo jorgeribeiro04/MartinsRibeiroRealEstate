@@ -29,7 +29,7 @@ export class ModalComponent implements OnInit {
   ngAfterViewInit() {
     setTimeout(() => {
       this.initliazeCheckboxes();
-    }, 10);
+    }, 50);
   }
 
   initliazeCheckboxes() {
@@ -131,6 +131,7 @@ export class ModalComponent implements OnInit {
       this.getMinPrice().toString(),
       this.getMaxPrice().toString(),
     ];
+
     this.checkboxStatus.emit(this.checkboxesArray);
     this.appliedFilters.emit(filters);
     this.closeModal();

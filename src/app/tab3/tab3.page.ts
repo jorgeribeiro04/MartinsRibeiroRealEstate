@@ -25,7 +25,6 @@ export class Tab3Page implements OnInit {
       this.user = await this.firebaseManagement.findUserByUsername(
         'jorgeguanhaes@gmail.com'
       );
-      console.log(this.user);
     } catch (error) {
       console.error(error);
     }
@@ -33,11 +32,6 @@ export class Tab3Page implements OnInit {
 
   getContentId() {
     return this.contentId;
-  }
-
-  ionViewWillEnter() {
-    this.menu.setContentId(this.contentId);
-    this.menu.closeMenu();
   }
 
   filteredString() {

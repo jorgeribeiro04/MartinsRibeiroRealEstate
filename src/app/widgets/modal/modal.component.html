@@ -7,7 +7,7 @@
   </ion-toolbar>
 </ion-header>
 <ion-content class="ion-padding">
-  <ion-accordion-group>
+  <ion-accordion-group [multiple]="true">
     @for(key of getKeys(); track key){
     <ion-accordion [value]="key">
       <ion-item id="filter-header" slot="header" [expanded]="true">

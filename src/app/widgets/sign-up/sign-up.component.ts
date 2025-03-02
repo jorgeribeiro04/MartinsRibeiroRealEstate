@@ -31,7 +31,13 @@ export class SignUpComponent implements OnInit {
     if (this.validPassword()) {
       this.firebaseManagement.createProfile(this.username(), this.password());
     } else {
+      this.password.set('');
       this.validPassword.set(false);
     }
+  }
+
+  resetForm() {
+    this.password.set('');
+    this.username.set('');
   }
 }

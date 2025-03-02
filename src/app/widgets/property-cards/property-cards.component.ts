@@ -1,4 +1,5 @@
-import { Component, OnInit, input } from '@angular/core';
+import { Component, OnInit, input, inject } from '@angular/core';
+import { MenuManagement } from 'src/menu.service';
 import { Properties } from 'src/properties.interface';
 
 @Component({
@@ -8,7 +9,13 @@ import { Properties } from 'src/properties.interface';
   standalone: false,
 })
 export class PropertyCardsComponent implements OnInit {
+  private menu = inject(MenuManagement);
   constructor() {}
   properties = input.required<Properties[] | undefined>();
   ngOnInit() {}
+
+  setContentId() {
+    this.menu.setContentId('propertyPage');
+    this.menu.closeMenu();
+  }
 }

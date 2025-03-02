@@ -1,0 +1,79 @@
+<ion-content id="propertyPage">
+  <ion-item>
+    <ion-card>
+      <swiper-container pagination="true">
+        @for(images of property?.propertyImages; track images){
+        <swiper-slide>
+          <ion-img [src]="images" alt="`Property Image" />
+        </swiper-slide>
+        }
+      </swiper-container>
+      <ion-card-header>
+        <ion-card-title>{{ property?.propertyType }}</ion-card-title>
+        <ion-card-subtitle>
+          {{ getSubtitleString() }}
+        </ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content>
+        Here's a small text description for the card content. Nothing more,
+        nothing less.
+      </ion-card-content>
+    </ion-card>
+  </ion-item>
+  <ion-accordion-group [multiple]="true" [value]="['third', 'fourth']">
+    <ion-accordion value="first">
+      <ion-item slot="header" class="details">
+        <ion-label><h2>Property Details</h2></ion-label>
+      </ion-item>
+      <div class="ion-padding" slot="content">
+        <ion-list>
+          <ion-item>
+            <span>
+              <ion-label class="property-details">
+                <h3>Double Bedrooms:</h3>
+                {{ property?.propertyDetails?.doubleBedroom }}
+              </ion-label></span
+            >
+          </ion-item>
+          <ion-item>
+            <span>
+              <ion-label class="property-details">
+                <h3>Single Bedrooms:</h3>
+                {{ property?.propertyDetails?.singleBedroom }}
+              </ion-label></span
+            >
+          </ion-item>
+        </ion-list>
+      </div>
+    </ion-accordion>
+    <ion-accordion value="second">
+      <ion-item slot="header" class="details">
+        <ion-label><h2>Property Description</h2></ion-label>
+      </ion-item>
+      <div class="ion-padding" slot="content">
+        <p>
+          {{ property?.propertyDescription }}
+        </p>
+      </div>
+    </ion-accordion>
+    <ion-accordion value="third">
+      <ion-item slot="header" class="details">
+        <ion-label><h2>Property Location</h2> </ion-label>
+      </ion-item>
+      <div id="map" class="ion-padding" slot="content"></div>
+    </ion-accordion>
+    @if(property?.propertyAvailability === 'Sale'){
+    <ion-accordion value="fourth">
+      <ion-item slot="header" class="details">
+        <ion-label><h2>Mortgage Calculator</h2> </ion-label>
+      </ion-item>
+      <div id="mortgage-calculator" class="ion-padding" slot="content">
+        <app-mortgage-calculator [propertyPrice]="+property?.propertyPrice!" />
+      </div>
+    </ion-accordion>
+    }
+  </ion-accordion-group>
+</ion-content>
+<ion-button id="book-visit" class="btn-booking">
+  <ion-icon name="calendar-sharp"></ion-icon>Book A Visit</ion-button
+>

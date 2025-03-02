@@ -1,0 +1,62 @@
+:host {
+  ion-grid {
+    ion-row {
+      padding-top: 2vh;
+      align-items: center;
+      ion-col {
+        text-align: center;
+        .labels {
+          font-weight: bold;
+          text-align: start;
+        }
+        ion-img {
+          width: 10vw;
+          height: 10vw;
+        }
+        ion-input {
+          --background: white;
+          width: 95%;
+        }
+      }
+    }
+    .border-row {
+      border-left-style: solid;
+      border-right-style: solid;
+    }
+    .repayments {
+      padding-bottom: 1vh;
+      border-bottom: solid;
+      border-color: green;
+    }
+    #header-row {
+      padding-top: 0;
+      text-align: center;
+      align-items: center;
+      border-style: none;
+      color: whitesmoke;
+      font-weight: bold;
+    }
+    .aib {
+      background-color: #441752;
+    }
+
+    .aib-border {
+      border-color: #441752;
+    }
+
+    .bank-of-ireland {
+      background-color: #0000ff;
+    }
+    .bOfI-border {
+      border-color: #0000ff;
+    }
+
+    .ebs {
+      background-color: #d92629;
+    }
+
+    .ebs-border {
+      border-color: #d92629;
+    }
+  }
+}

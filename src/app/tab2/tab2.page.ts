@@ -34,11 +34,6 @@ export class Tab2Page implements OnInit {
     return this.contentId;
   }
 
-  ionViewWillEnter() {
-    this.menu.setContentId(this.contentId);
-    this.menu.closeMenu();
-  }
-
   filteredString() {
     return `${this.propertiesForSale?.length} properties for Sale in Dublin`;
   }

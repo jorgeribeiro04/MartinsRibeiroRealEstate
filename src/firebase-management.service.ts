@@ -9,7 +9,7 @@ import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { firstValueFrom, forkJoin, Observable } from 'rxjs';
 import { Properties } from './properties.interface';
 import { User } from './user.interface';
-import { take, map } from 'rxjs/operators';
+import { take, map, filter } from 'rxjs/operators';
 import { SessionManagement } from './session-management.service';
 import { UserProfile } from './userProfile.interface';
 
@@ -88,6 +88,26 @@ export class FirebaseManagement {
           );
           const data = await firstValueFrom(collection.valueChanges());
           const propertiesData: Properties[] = data as Properties[];
+          resolve(propertiesData);
+        } catch (error) {
+          reject(error);
+        }
+      });
+    });
+  }
+
+  getPropertyById(propertyId: number) {
+    return new Promise<Properties>((resolve, reject) => {
+      runInInjectionContext(this.injector, async () => {
+        try {
+          const collection = this.firestore.collection<Properties>(
+            'properties',
+            (ref) => ref.where('propertyCode', '==', propertyId)
+          );
+          const data = await firstValueFrom(
+            collection.valueChanges().pipe(take(1))
+          );
+          const propertiesData: Properties = data[0] as Properties;
           resolve(propertiesData);
         } catch (error) {
           reject(error);
@@ -188,6 +208,9 @@ export class FirebaseManagement {
     return new Promise<Properties[]>((resolve, reject) => {
       runInInjectionContext(this.injector, async () => {
         try {
+          const prices = userFilters['propertyPrice'];
+          const minPrice = prices[0];
+          const maxPrice = prices[1];
           let propertiesData: Properties[] = [];
           const promisses: Promise<Properties[]>[] = [];
           for (const key of Object.keys(userFilters)) {
@@ -205,13 +228,18 @@ export class FirebaseManagement {
             results.forEach((data) => {
               propertiesData = propertiesData.concat(data);
             });
+
+            const uniqueProperties = new Map();
+            propertiesData.forEach((property) => {
+              uniqueProperties.set(property.propertyCode, property);
+            });
+            propertiesData = Array.from(uniqueProperties.values());
             const filteredProperties = propertiesData.filter((property) => {
               return Object.keys(userFilters).every((key) => {
-                if (userFilters[key].length > 0) {
-                  return userFilters[key].includes(
-                    property[key as keyof Properties]
-                  );
-                }
+                return userFilters[key].includes(
+                  property[key as keyof Properties]
+                );
+
                 return true;
               });
             });

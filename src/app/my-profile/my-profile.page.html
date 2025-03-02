@@ -2,20 +2,68 @@
 <app-side-menu />
 <ion-content [id]="getContentId()" [fullscreen]="true">
   <ion-item>
-    <ion-img src="/assets/profilePictures/jorge.png"></ion-img>
+    <ion-img
+      id="profile-image"
+      src="/assets/profilePictures/jorge.png"
+    ></ion-img>
   </ion-item>
+  <div id="update-profile-picture">
+    <ion-icon name="camera-sharp"></ion-icon>
+  </div>
   <ion-grid>
     <ion-row>
-      <ion-label>Name</ion-label>
-      <ion-input></ion-input>
+      <ion-col size="6">
+        <ion-label>Name</ion-label>
+        <ion-input></ion-input>
+      </ion-col>
+      <ion-col size="6">
+        <ion-label>Surname</ion-label>
+        <ion-input></ion-input>
+      </ion-col>
     </ion-row>
     <ion-row>
-      <ion-label>Surname</ion-label>
-      <ion-input></ion-input>
+      <ion-col size="12">
+        <ion-label>Address</ion-label>
+        <ion-input></ion-input>
+      </ion-col>
     </ion-row>
     <ion-row>
-      <ion-label>Username</ion-label>
-      <ion-input></ion-input>
+      <ion-col size="6">
+        <ion-label>City</ion-label>
+        <ion-input></ion-input>
+      </ion-col>
+      <ion-col size="6">
+        <ion-label>County</ion-label>
+        <ion-select [value]="counties[0]">
+          @for(county of counties; track county){
+          <ion-select-option [value]="county">{{county}}</ion-select-option>
+          }
+        </ion-select>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="12">
+        <ion-label>Phone Number</ion-label>
+        <ion-item>
+          <span button id="click-trigger">
+            <ion-img
+              id="country-flag"
+              [ngClass]="'flag-icon flag-icon-' + countryRegion.toLowerCase()"
+            ></ion-img>
+            <ion-label>(+{{countryCode}})</ion-label>
+            <ion-icon name="chevron-down-sharp"></ion-icon>
+          </span>
+          <ion-popover trigger="click-trigger" triggerAction="click">
+            <ng-template>
+              <app-phone-list
+                (countryCode)="selectedCountry($event)"
+                id="country-codes"
+              />
+            </ng-template>
+          </ion-popover>
+          <ion-input> </ion-input>
+        </ion-item>
+      </ion-col>
     </ion-row>
   </ion-grid>
 </ion-content>

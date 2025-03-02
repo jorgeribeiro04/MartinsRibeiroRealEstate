@@ -1,0 +1,16 @@
+:host {
+  max-height: 40%;
+  ion-radio-group {
+    #flag-container {
+      overflow-y: auto;
+      width: 100%;
+      align-items: center;
+      display: block;
+      text-align: center;
+      ion-item {
+        display: list-item;
+      }
+      margin-bottom: 5vh;
+    }
+  }
+}

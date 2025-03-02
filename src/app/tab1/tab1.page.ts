@@ -25,7 +25,6 @@ export class Tab1Page implements OnInit {
 
   ngOnInit() {
     this.fetchData();
-    this.menu.setContentId(this.getContentId());
   }
 
   async fetchData() {
@@ -42,20 +41,11 @@ export class Tab1Page implements OnInit {
     return this.contentId;
   }
 
-  ionViewWillEnter() {
-    this.menu.setContentId(this.getContentId());
-  }
-
-  ionViewDidEnter() {
-    this.menu.setContentId(this.getContentId());
-  }
-
   filteredString() {
     return `${this.propertiesForRent?.length} properties for Rent in Dublin`;
   }
 
-  async printingFiltes(filters: { [key: string]: string[] }) {
-    console.log(filters);
+  async printingFilters(filters: { [key: string]: string[] }) {
     this.propertiesForRent = await this.firebaseManagement.filterProperties(
       filters
     );
